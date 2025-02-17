@@ -1,0 +1,100 @@
+{
+    "info": {
+        "name": "Multi-Modal Image Retrieval API Tests",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "url": "http://localhost:8000/health",
+                "description": "Check if the API is running and get system status"
+            }
+        },
+        {
+            "name": "Search Images - Nature",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/search",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": {
+                        "query": "a beautiful nature scene with trees and mountains",
+                        "top_k": 5
+                    }
+                },
+                "description": "Search for nature-related images"
+            }
+        },
+        {
+            "name": "Search Images - Animals",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/search",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": {
+                        "query": "a cute animal in the wild",
+                        "top_k": 5
+                    }
+                },
+                "description": "Search for animal-related images"
+            }
+        },
+        {
+            "name": "Search Images - Urban",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/search",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": {
+                        "query": "modern city skyline with tall buildings",
+                        "top_k": 5
+                    }
+                },
+                "description": "Search for urban scenes"
+            }
+        },
+        {
+            "name": "Search Images - Max Results",
+            "request": {
+                "method": "POST",
+                "url": "http://localhost:8000/search",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": {
+                        "query": "colorful abstract art",
+                        "top_k": 20
+                    }
+                },
+                "description": "Search with maximum number of results"
+            }
+        }
+    ]
+}
