@@ -141,4 +141,22 @@ MIT
 - The creators of the AI vs. Human-Generated dataset
 
 
+## BackEnd
+-install Conda
+-Install Pycharm or any IDE of your choice
+-install conda
+-create an environment variable
+-open a terminal and use the following command: conda create --name myenv python=3.11
+-In the IDE make sure that you selected the newly created interpreter
+-Install Cuda from the following link we used CUDA 12: https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
+-Install PyTorch: pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+-pip install -r requirements.txt
+-Make Sure the enviroment is properl activated: Windows: activate "name" Unix: source activate "name"
+-python download_dataset.py
+-cd to the folder backend make sure the right environment is activated: run the following commands: make sure you are in the correct folder :Python main 
+
+
+## FrontEnd
+-cd to the folder frontend: run the following commands:
+-npm install
 -npm run start
