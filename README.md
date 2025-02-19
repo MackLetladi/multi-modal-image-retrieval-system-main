@@ -91,11 +91,15 @@ System for retrieving images using natural language queries. The system uses CLI
 2. Images are in JPEG format
 3. CLIP model is suitable for general image retrieval tasks
 4. Users have basic familiarity with web interfaces
+5. The Application was mainly tested on Windows but it should work on Linux
 
 
 ## BackEnd
 - Install Conda
 - Install Pycharm or any IDE of your choice
+- create a folder called PycharmProjects
+- - Windows: C:\Users\User\
+- - Linux : ${HOME}
 - Create an environment variable
 - open a terminal and use the following command: conda create --name myenv python=3.11
 - In the IDE make sure that you selected the newly created interpreter
