@@ -116,7 +116,7 @@ System for retrieving images using natural language queries. The system uses CLI
 ## FrontEnd
 - cd to the folder frontend: run the following commands:
 - npm install
-- npm run start
+- npm start
 
 ## Running Tests
 python test_api.py
