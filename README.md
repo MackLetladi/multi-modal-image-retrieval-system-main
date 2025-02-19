@@ -88,20 +88,6 @@ System for retrieving images using natural language queries. The system uses CLI
 - git clone https://github.com/yourusername/multimodal-retrieval.git
 
 
-## Running Tests
-
-Backend tests:
-\`\`\`bash
-cd backend
-pytest
-\`\`\`
-
-Frontend tests:
-\`\`\`bash
-cd frontend
-npm test
-\`\`\`
-
 ## API Documentation
 
 Once the backend and frontend is running, visit http://localhost:8000/ for the interactive API documentation.
@@ -112,11 +98,6 @@ Once the backend and frontend is running, visit http://localhost:8000/ for the i
 2. Images are in JPEG format
 3. CLIP model is suitable for general image retrieval tasks
 4. Users have basic familiarity with web interfaces
-
-## Acknowledgments
-- OpenAI for the CLIP model
-- Facebook Research for FAISS
-- The creators of the AI vs. Human-Generated dataset
 
 
 ## BackEnd
@@ -143,3 +124,17 @@ Once the backend and frontend is running, visit http://localhost:8000/ for the i
 - cd to the folder frontend: run the following commands:
 - npm install
 - npm run start
+
+## Running Tests
+
+Backend tests:
+\`\`\`bash
+cd backend
+pytest
+\`\`\`
+
+Frontend tests:
+\`\`\`bash
+cd frontend
+npm test
+\`\`\`
