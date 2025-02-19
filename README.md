@@ -83,7 +83,7 @@ System for retrieving images using natural language queries. The system uses CLI
 ## Installation
 
 1. Clone the repository:
-- git clone https://github.com/yourusername/multimodal-retrieval.git
+- git clone https://github.com/MackLetladi/multi-modal-image-retrieval-system-main.git
 
 ## Assumptions
 
