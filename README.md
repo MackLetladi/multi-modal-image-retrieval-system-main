@@ -9,8 +9,6 @@ System for retrieving images using natural language queries. The system uses CLI
 - Efficient similarity search with Facebook AI's FAISS
 - Modern React frontend with Material-UI
 - FastAPI backend with async support
-- Comprehensive error handling
-- Production-ready code structure
 
 ## System Architecture
 
