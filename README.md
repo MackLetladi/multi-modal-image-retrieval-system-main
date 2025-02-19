@@ -119,19 +119,7 @@ System for retrieving images using natural language queries. The system uses CLI
 - npm run start
 
 ## Running Tests
-
-Backend tests:
-\`\`\`bash
-cd backend
-pytest
-\`\`\`
-
-Frontend tests:
-\`\`\`bash
-cd frontend
-npm test
-\`\`\`
-
+python test_api.py
 ## API Documentation
 
 Once the backend and frontend is running, visit http://localhost:8000/ for the interactive API documentation.
