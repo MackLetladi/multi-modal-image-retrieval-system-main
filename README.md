@@ -85,11 +85,6 @@ System for retrieving images using natural language queries. The system uses CLI
 1. Clone the repository:
 - git clone https://github.com/yourusername/multimodal-retrieval.git
 
-
-## API Documentation
-
-Once the backend and frontend is running, visit http://localhost:8000/ for the interactive API documentation.
-
 ## Assumptions
 
 1. Using a sample of 500 images from the test_data_v2 folder
@@ -136,3 +131,7 @@ Frontend tests:
 cd frontend
 npm test
 \`\`\`
+
+## API Documentation
+
+Once the backend and frontend is running, visit http://localhost:8000/ for the interactive API documentation.
