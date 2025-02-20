@@ -32,98 +32,113 @@ System for retrieving images using natural language queries. The system uses CLI
     └── package.json         # Frontend dependencies
 ```
 
-## Prerequisites
-
-### Backend Requirements
-- Python 3.8+
-- CUDA-capable GPU (recommended for faster CLIP model inference)
-- 8GB RAM minimum, 16GB recommended
-- Storage space for image database
-- Required Python packages:
-  - FastAPI
-  - Uvicorn
-  - PyTorch
-  - CLIP
-  - FAISS-gpu (or FAISS-cpu)
-  - Pillow
-  - Python-multipart
-  - SpeechRecognition
-  - gTTS (Google Text-to-Speech)
-  - PyAudio
-  - Transformers
-  - NumPy
-  - Pandas
-
-### Frontend Requirements
-- Node.js 14+
-- npm 6+
-- Modern web browser with support for:
-  - WebSpeech API
-  - WebAudio API
-  - ARIA support
-  - LocalStorage
-- Required npm packages:
-  - React 17+
-  - Material-UI 5+
-  - React-Speech-Recognition
-  - React-Speech-Kit
-  - Axios
-  - Web Accessibility Tools:
-    - @axe-core/react
-    - react-aria
-    - react-focus-lock
-
-### System Requirements
-- Operating System: Windows 10/11, macOS, or Linux
-- Disk Space: Minimum 10GB free space
-- Internet Connection: Required for model downloads and API calls
-- Microphone: Required for voice command features
-- Speakers/Headphones: Required for audio feedback
-
-## Installation
-
-1. Clone the repository:
-- git clone https://github.com/MackLetladi/multi-modal-image-retrieval-system-main.git
-
 ## Assumptions
 
-1. Using a sample of 500 images from the test_data_v2 folder
-2. Images are in JPEG format
-3. CLIP model is suitable for general image retrieval tasks
-4. Users have basic familiarity with web interfaces
-5. The Application was mainly tested on Windows but it should work on Linux
+1. Cuda and all required libraries are installed
+2. Using a sample of 500 images from the test_data_v2 folder
+3. Images are in JPEG format
+4. CLIP model is suitable for general image retrieval tasks
+5. Users have basic familiarity with web interfaces
+6. The Application was mainly tested on Windows but it should work on Linux
+# Multi-Modal Image Retrieval System - Setup Guide  
+
+This setup script works for both **Windows** and **Linux**.  
+
+## 📂 1. Creating Necessary Folders  
+- **Linux**: Create a folder in `$HOME` called `Image_retrieval`.  
+- **Windows**: Create a folder in `%USERPROFILE%` called `Image_retrieval`.  
+
+## 🔧 2. Checking and Installing Dependencies  
+
+### ✅ Git  
+- Check if Git is installed. If not, install it.  
+- Clone the repository:  
+  ```sh
+  git clone https://github.com/MackLetladi/multi-modal-image-retrieval-system-main.git
+  ```
+
+### ✅ Anaconda  
+- Check if Anaconda is installed. If not, download and install it from [Anaconda Website](https://www.anaconda.com/download).  
+
+## 🌍 3. Creating a Virtual Environment  
+- Create a virtual environment named `image_retrieval`. 
+- - conda create --name image_retrieval python=3.11
+- Activate the environment.
+- - source activate image_retrieval
 
 
-## BackEnd
-- Install Conda
-- Install Pycharm or any IDE of your choice
-- create a folder called PycharmProjects
-- - Windows: C:\Users\User\
-- - Linux : ${HOME}
-- Create an environment variable
-- open a terminal and use the following command: conda create --name myenv python=3.11
-- In the IDE make sure that you selected the newly created interpreter
-- Install Cuda from the following link we used CUDA 12:
-- - https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local
-- Install PyTorch: 
-- - pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
-- pip install -r requirements.txt
-- Make Sure the environment is properly activated: 
-  - Windows: activate "name" 
-  - Unix: source activate "name"
-- python download_dataset.py
-- cd to the folder backend make sure the right environment is activated:
-  - run the following commands: make sure you are in the correct folder :
-    - python main 
+## ⚡ 4. Installing CUDA (For GPU Acceleration)  
+- Download and install CUDA from the following link:  
+  [CUDA Downloads](https://developer.nvidia.com/cuda-downloads?target_os=Windows&target_arch=x86_64&target_version=10&target_type=exe_local)  
 
+## 🔥 5. Installing PyTorch  
+- Run the following command in the env: image_retrieval
+  ```sh
+  pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+  ```
 
-## FrontEnd
-- cd to the folder frontend: run the following commands:
-- npm install
-- npm start
+## 🔧 8. Installing Backend Dependencies  
+- Navigate to the backend directory and install dependencies:  
+  ```sh
+  pip install -r backend/requirements.txt
+  ```
+- Ensure all dependencies are installed within the activated environment.  
 
-## Running Tests
-python test_api.py
-## API Documentation
+---
 
+# 🎨 Frontend Setup  
+
+## 📂 1. Navigating to the Frontend Directory  
+- Navigate to:  
+  ```sh
+  cd multi-modal-image-retrieval-system-main/frontend
+  ```
+
+## ✅ 2. Checking and Installing Node.js  
+- Check if Node.js is installed. If not, install it from [Node.js Website](https://nodejs.org/).  
+
+## 📦 3. Installing Frontend Dependencies  
+- Run the following command:  
+  ```sh
+  npm install
+  ```
+
+---
+
+# 🚀 Running the Application  
+
+## 📥 1. Downloading the Dataset  
+- Navigate to the dataset folder:  
+  ```sh
+  cd multi-modal-image-retrieval-system-main/backend/src/data
+  ```
+- Run the dataset download script:  
+  ```sh
+  python download_dataset.py
+  ```
+  _(This will download 500 datasets.)_  
+
+## 🔥 2. Starting the Backend  
+- Navigate to the API directory:  
+  ```sh
+  cd multi-modal-image-retrieval-system-main/backend/src/api
+  ```
+- Start the backend server:  
+  ```sh
+  python main.py
+  ```
+
+## 🎨 3. Starting the Frontend  
+- Navigate to the frontend directory:  
+  ```sh
+  cd multi-modal-image-retrieval-system-main/frontend
+  ```
+- Start the frontend application:  
+  ```sh
+  npm start
+  ```
+
+---
+
+This guide ensures your application runs smoothly on both **Windows** and **Linux**. 🚀
 Once the backend and frontend is running, visit http://localhost:8000/ for the interactive API documentation.
