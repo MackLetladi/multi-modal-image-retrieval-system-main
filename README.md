@@ -141,4 +141,4 @@ This setup script works for both **Windows** and **Linux**.
 ---
 
 This guide ensures your application runs smoothly on both **Windows** and **Linux**. 🚀
-Once the backend and frontend is running, visit http://localhost:8000/ for the interactive API documentation.
+Once the backend and frontend is running, visit http://localhost:8000/.
