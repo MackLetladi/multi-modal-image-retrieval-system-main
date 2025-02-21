@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 import torch
+import platform
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -8,7 +9,11 @@ load_dotenv()
 
 # Base paths
 BASE_DIR = Path(__file__).parent.parent
-DATA_DIR = Path(os.getenv('IMAGE_DATA_DIR', BASE_DIR / 'data'))
+if platform.system() == 'Windows':
+    DATA_DIR = Path(os.getenv('IMAGE_DATA_DIR_WINDOWS', BASE_DIR / 'data'))
+else:
+    DATA_DIR = Path(os.getenv('IMAGE_DATA_DIR_LINUX', BASE_DIR / 'data'))
+
 MODEL_DIR = BASE_DIR / 'models'
 
 # Model configuration

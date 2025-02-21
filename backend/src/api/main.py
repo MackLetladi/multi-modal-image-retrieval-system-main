@@ -1,19 +1,17 @@
+import json
+
 from fastapi import FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
-from fastapi.middleware.httpsredirect import HTTPSRedirectMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
-from starlette.responses import Response
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict
+from typing import List, Dict
 import uvicorn
 import os
 import logging
 import time
-from pathlib import Path
-import json
 
 from backend.src.models.retrieval_model import MultiModalRetrieval
 from backend.src.data.data_loader import ImageDataset
@@ -31,10 +29,11 @@ from backend.src.config import (
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 class SecurityHeadersMiddleware(BaseHTTPMiddleware):
     async def dispatch(self, request: Request, call_next):
         response = await call_next(request)
-        
+
         # Development CSP - more permissive for development tools
         if os.getenv("ENVIRONMENT", "development") == "development":
             csp = (
@@ -66,8 +65,9 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
         response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
         response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
-        
+
         return response
+
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -125,7 +125,7 @@ rate_limiter = RateLimiter()
 class SearchQuery(BaseModel):
     """Model for search query requests."""
     query: str = Field(..., min_length=1, max_length=500)
-    top_k: Optional[int] = Field(default=TOP_K, ge=1, le=20)
+    top_k: int = Field(default=TOP_K, ge=1, le=20)
 
 
 class SearchResult(BaseModel):
@@ -275,7 +275,9 @@ class ConnectionManager:
         for connection in self.active_connections.values():
             await connection.send_text(message)
 
+
 manager = ConnectionManager()
+
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):

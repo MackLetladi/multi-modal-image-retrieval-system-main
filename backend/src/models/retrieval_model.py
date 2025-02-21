@@ -2,11 +2,10 @@ import torch
 from transformers import CLIPProcessor, CLIPModel
 import faiss
 import numpy as np
-from typing import List, Tuple, Optional
+from typing import List, Tuple
 from ..data.data_loader import ImageDataset
 import logging
 from functools import lru_cache
-from torchvision.transforms import ToPILImage
 from PIL import Image
 
 logger = logging.getLogger(__name__)
@@ -97,16 +96,6 @@ class MultiModalRetrieval:
         except Exception as e:
             logger.error(f"Failed to build index: {str(e)}")
             raise RuntimeError(f"Failed to build index: {str(e)}")
-
-    def _process_image(self, image_tensor: torch.Tensor) -> Image.Image:
-        # Denormalize if using standard ImageNet normalization
-        image_tensor = image_tensor.clone().detach().cpu()
-        image_tensor = image_tensor * torch.tensor([0.229, 0.224, 0.225]).view(3, 1, 1)
-        image_tensor = image_tensor + torch.tensor([0.485, 0.456, 0.406]).view(3, 1, 1)
-        
-        # Scale to 0-255 range and convert to uint8
-        image_tensor = torch.clamp(image_tensor * 255, 0, 255).byte()
-        return ToPILImage()(image_tensor)
 
     @lru_cache(maxsize=1000)
     def _process_query(self, query_text: str) -> np.ndarray:
